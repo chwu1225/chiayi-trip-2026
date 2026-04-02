@@ -1,5 +1,9 @@
 {
   "name": "chiayi-trip-2026",
+  "private": true,
   "version": "1.0.0",
-  "description": "Chiayi Family Trip 3D2N Travel Guide - April 2026"
+  "description": "Chiayi Family Trip 3D2N Travel Guide - April 2026",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
