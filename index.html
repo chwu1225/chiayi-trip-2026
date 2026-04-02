@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嘉義親子旅遊 3天2夜 | 2026.04</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<style>
+:root {
+  --green: #2d6a4f;
+  --green-light: #40916c;
+  --green-bg: #d8f3dc;
+  --orange: #e76f51;
+  --cream: #fefae0;
+  --dark: #1b1b1b;
+  --gray: #6b7280;
+  --white: #ffffff;
+  --shadow: 0 2px 12px rgba(0,0,0,.08);
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; color: var(--dark); background: #f5f5f0; line-height:1.6; }
+a { color: var(--green); text-decoration:none; }
+a:hover { text-decoration: underline; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: var(--white);
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+.hero h1 { font-size:2rem; margin-bottom:8px; }
+.hero .subtitle { font-size:1.1rem; opacity:.9; }
+.hero .dates { margin-top:16px; background:rgba(255,255,255,.15); display:inline-block; padding:8px 24px; border-radius:30px; font-size:.95rem; }
+
+/* Nav tabs */
+.nav { position:sticky; top:0; z-index:100; background:var(--white); border-bottom:1px solid #e5e5e5; overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch; }
+.nav-inner { display:flex; max-width:900px; margin:0 auto; }
+.nav a { padding:14px 18px; font-size:.9rem; color:var(--gray); border-bottom:3px solid transparent; transition:.2s; flex-shrink:0; }
+.nav a:hover, .nav a.active { color:var(--green); border-bottom-color:var(--green); text-decoration:none; }
+
+/* Container */
+.container { max-width:900px; margin:0 auto; padding:0 16px; }
+section { padding:40px 0; }
+section:target { scroll-margin-top: 60px; }
+h2 { font-size:1.5rem; color:var(--green); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+h2 .icon { font-size:1.8rem; }
+h3 { font-size:1.15rem; color:var(--dark); margin:24px 0 12px; }
+
+/* Cards */
+.card { background:var(--white); border-radius:var(--radius); padding:24px; margin-bottom:16px; box-shadow:var(--shadow); }
+.card-accent { border-left:4px solid var(--green); }
+.card-warn { border-left:4px solid var(--orange); background:#fff8f0; }
+
+/* Day timeline */
+.day-header { background:var(--green); color:var(--white); padding:12px 20px; border-radius:var(--radius) var(--radius) 0 0; font-size:1.1rem; font-weight:700; }
+.day-body { background:var(--white); border-radius:0 0 var(--radius) var(--radius); box-shadow:var(--shadow); margin-bottom:24px; }
+.timeline-item { padding:16px 20px; border-bottom:1px solid #f0f0f0; display:flex; gap:16px; align-items:flex-start; }
+.timeline-item:last-child { border-bottom:none; }
+.time { font-weight:700; color:var(--green); min-width:56px; font-size:.9rem; }
+.activity { flex:1; }
+.activity .name { font-weight:600; font-size:1rem; }
+.activity .desc { font-size:.85rem; color:var(--gray); margin-top:4px; }
+.tag { display:inline-block; font-size:.75rem; padding:2px 8px; border-radius:20px; margin-top:4px; margin-right:4px; }
+.tag-free { background:var(--green-bg); color:var(--green); }
+.tag-nature { background:#dbeafe; color:#1e40af; }
+.tag-food { background:#fef3c7; color:#92400e; }
+.tag-culture { background:#ede9fe; color:#5b21b6; }
+.tag-kid { background:#fce7f3; color:#9d174d; }
+
+/* Budget table */
+table { width:100%; border-collapse:collapse; font-size:.9rem; }
+th { background:var(--green); color:var(--white); padding:10px 12px; text-align:left; }
+td { padding:10px 12px; border-bottom:1px solid #f0f0f0; }
+tr:last-child td { border-bottom:none; }
+.text-right { text-align:right; }
+.text-bold { font-weight:700; }
+.text-green { color:var(--green); }
+.text-orange { color:var(--orange); }
+.highlight-row { background:var(--green-bg); }
+
+/* Nature grid */
+.nature-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px; }
+.nature-card { background:var(--white); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); transition:transform .2s; }
+.nature-card:hover { transform:translateY(-2px); }
+.nature-card .emoji { font-size:2rem; margin-bottom:8px; }
+.nature-card h4 { font-size:1rem; margin-bottom:6px; }
+.nature-card .meta { font-size:.8rem; color:var(--gray); }
+.nature-card .badge { display:inline-block; font-size:.7rem; padding:2px 8px; border-radius:10px; margin-top:8px; }
+.badge-easy { background:#dcfce7; color:#166534; }
+.badge-mid { background:#fef9c3; color:#854d0e; }
+.badge-hard { background:#fee2e2; color:#991b1b; }
+
+/* Subsidy */
+.subsidy-box { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.subsidy-item { background:var(--white); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); text-align:center; }
+.subsidy-item .amount { font-size:2rem; font-weight:800; color:var(--orange); }
+.subsidy-item .label { font-size:.85rem; color:var(--gray); margin-top:4px; }
+.subsidy-item .status { margin-top:8px; font-size:.8rem; padding:4px 12px; border-radius:20px; display:inline-block; }
+.status-ok { background:#dcfce7; color:#166534; }
+.status-wait { background:#fef9c3; color:#854d0e; }
+
+/* Checklist */
+.checklist { list-style:none; }
+.checklist li { padding:10px 0; border-bottom:1px solid #f0f0f0; display:flex; align-items:center; gap:10px; font-size:.95rem; }
+.checklist li:last-child { border-bottom:none; }
+.check { width:22px; height:22px; border:2px solid var(--green); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer; transition:.2s; }
+.check.done { background:var(--green); }
+.check.done::after { content:"✓"; color:white; font-size:14px; }
+
+/* Hotel compare */
+.hotel-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.hotel-card { background:var(--white); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); text-align:center; }
+.hotel-card .price { font-size:1.5rem; font-weight:800; color:var(--orange); }
+.hotel-card .after { font-size:.85rem; color:var(--gray); }
+.hotel-card h4 { font-size:.95rem; margin:8px 0 4px; }
+
+/* Footer */
+footer { background:var(--green); color:var(--white); text-align:center; padding:30px 20px; margin-top:40px; font-size:.85rem; }
+footer a { color:var(--green-bg); }
+
+/* Responsive */
+@media (max-width:600px) {
+  .hero h1 { font-size:1.5rem; }
+  .subsidy-box { grid-template-columns:1fr; }
+  .hotel-grid { grid-template-columns:1fr; }
+  .nature-grid { grid-template-columns:1fr; }
+  .nav a { padding:12px 14px; font-size:.82rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🌿 嘉義親子旅遊攻略</h1>
+  <div class="subtitle">阿里山 · 故宮南院 · 大自然秘境 — 3天2夜</div>
+  <div class="dates">📅 2026 年 4 月中旬（平日出發）· 2大2小</div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#subsidy" class="active">💰 補助</a>
+    <a href="#hotel">🏨 住宿</a>
+    <a href="#day1">📍 Day1</a>
+    <a href="#day2">📍 Day2</a>
+    <a href="#day3">📍 Day3</a>
+    <a href="#nature">🌲 自然景點</a>
+    <a href="#budget">🧮 預算</a>
+    <a href="#checklist">✅ 待辦</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- Subsidy Section -->
+<section id="subsidy">
+  <h2><span class="icon">💰</span>住宿補助</h2>
+  <div class="subsidy-box">
+    <div class="subsidy-item">
+      <div class="amount">-$1,000</div>
+      <div class="label">嘉義市「玩嘉攻略大方送」</div>
+      <div class="label">每身分證限用 1 次 · 現場折抵</div>
+      <span class="status status-ok">✅ 已上路 4/13 起</span>
+    </div>
+    <div class="subsidy-item">
+      <div class="amount">-$2,000</div>
+      <div class="label">中央平日住宿補助</div>
+      <div class="label">第1晚 $800 + 連住第2晚 $1,200</div>
+      <span class="status status-wait">⏳ 等預算通過</span>
+    </div>
+  </div>
+
+  <div class="card card-accent" style="margin-top:16px;">
+    <h3>🔑 疊加策略（2大2小）</h3>
+    <table>
+      <tr><th>晚數</th><th>用誰的名字</th><th>嘉義市</th><th>中央</th><th>小計</th></tr>
+      <tr><td>第 1 晚</td><td>爸爸</td><td class="text-green">-$1,000</td><td class="text-green">-$800</td><td class="text-bold">省 $1,800</td></tr>
+      <tr><td>第 2 晚</td><td>媽媽</td><td class="text-green">-$1,000</td><td class="text-green">-$1,200</td><td class="text-bold">省 $2,200</td></tr>
+      <tr class="highlight-row"><td colspan="4" class="text-bold">兩晚合計最多可省</td><td class="text-bold text-orange">$4,000</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:.85rem;color:var(--gray);">
+      ※ 嘉義市補助已確定（4/13 起）。中央補助待預算通過，預計 4～5 月上路。兩者可疊加（不同經費來源）。<br>
+      ※ 登記網站：<a href="https://www.chiayistay.com.tw/" target="_blank">chiayistay.com.tw</a>　諮詢專線：05-2277208
+    </p>
+  </div>
+</section>
+
+<!-- Hotel Section -->
+<section id="hotel">
+  <h2><span class="icon">🏨</span>住宿推薦（便宜乾淨型）</h2>
+  <div class="hotel-grid">
+    <div class="hotel-card">
+      <h4>葉綠宿旅館</h4>
+      <div class="price">$1,500</div>
+      <div class="after">折後約 $500/晚</div>
+      <p style="font-size:.8rem;color:var(--gray);margin-top:8px;">夜市走路 5 分鐘<br>有嬰兒床/澡盆<br>免費茶飲點心</p>
+      <p style="font-size:.75rem;margin-top:6px;">📞 05-2258-877</p>
+    </div>
+    <div class="hotel-card">
+      <h4>鉅陞亮點旅店</h4>
+      <div class="price">$1,800</div>
+      <div class="after">折後約 $800/晚</div>
+      <p style="font-size:.8rem;color:var(--gray);margin-top:8px;">火車站走路 4 分鐘<br>2024 新裝修<br>交通最方便</p>
+      <p style="font-size:.75rem;margin-top:6px;">📞 05-2230-399</p>
+    </div>
+    <div class="hotel-card">
+      <h4>二三星球旅館</h4>
+      <div class="price">$1,600</div>
+      <div class="after">折後約 $600/晚</div>
+      <p style="font-size:.8rem;color:var(--gray);margin-top:8px;">火車站 150 公尺<br>評價 4.6 星<br>設計感乾淨</p>
+      <p style="font-size:.75rem;margin-top:6px;">📞 05-2286-523</p>
+    </div>
+  </div>
+  <div class="card card-warn" style="margin-top:12px;">
+    <strong>⚠️ 訂房須知</strong>：必須<strong>直接打電話給飯店</strong>訂房，說參加「玩嘉攻略大方送」。透過 Agoda / Booking 訂的不適用補助。入住時出示身分證正本。
+  </div>
+</section>
+
+<!-- Day 1 -->
+<section id="day1">
+  <h2><span class="icon">📍</span>行程規劃</h2>
+  <div class="day-header">🌿 Day 1 — 故宮南院 + 竹崎親水公園</div>
+  <div class="day-body">
+    <div class="timeline-item">
+      <div class="time">09:00</div>
+      <div class="activity">
+        <div class="name">台北出發</div>
+        <div class="desc">開車國道約 3hr / 高鐵嘉義站 1.5hr</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">12:00</div>
+      <div class="activity">
+        <div class="name">午餐：林聰明沙鍋魚頭 / 劉里長雞肉飯</div>
+        <div class="desc">嘉義必吃，排隊名店</div>
+        <span class="tag tag-food">🍜 美食</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">13:30</div>
+      <div class="activity">
+        <div class="name">故宮南院（停留 2.5hr）</div>
+        <div class="desc">兒童創意中心互動體驗 · 亞洲藝術展 · 戶外水舞廣場 · 大草皮放電。推車友善、有電梯</div>
+        <span class="tag tag-culture">🏛️ 文化</span>
+        <span class="tag tag-free">12歲以下免費</span>
+        <span class="tag tag-kid">👶 推車OK</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">16:00</div>
+      <div class="activity">
+        <div class="name">竹崎親水公園（停留 1hr）</div>
+        <div class="desc">天空走廊懸空棧道 · 森林步道 · 景觀吊橋。免費、平緩好走</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-free">免費</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">17:30</div>
+      <div class="activity">
+        <div class="name">Check-in 旅館 → 文化路夜市晚餐</div>
+        <div class="desc">御香屋葡萄柚綠茶 · 郭家雞肉飯 · 阿娥豆花</div>
+        <span class="tag tag-food">🍜 美食</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">20:00</div>
+      <div class="activity">
+        <div class="name">回旅館休息</div>
+        <div class="desc">明天上阿里山要早起！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="day-header" id="day2">⛰️ Day 2 — 阿里山一日遊（重頭戲）</div>
+  <div class="day-body">
+    <div class="timeline-item">
+      <div class="time">07:00</div>
+      <div class="activity">
+        <div class="name">早餐後出發上山</div>
+        <div class="desc">嘉義市區→阿里山約 2~2.5hr 車程（台18線）</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">08:00</div>
+      <div class="activity">
+        <div class="name">途經：二延平步道觀景台（停留 30 分鐘）</div>
+        <div class="desc">茶園雲海秘境，拍照即可，不用走完全程</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-free">免費</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">09:30</div>
+      <div class="activity">
+        <div class="name">抵達阿里山國家森林遊樂區</div>
+        <div class="desc">門票：大人 $200 · U 免費（未滿7歲）· 綠綠免費（未滿3歲）</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-free">小孩免費</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">10:00</div>
+      <div class="activity">
+        <div class="name">搭沼平線小火車（6分鐘）</div>
+        <div class="desc">阿里山站→沼平站，大人 $100/小孩 $50。綠綠可抱著坐</div>
+        <span class="tag tag-kid">🚂 小火車</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">10:30</div>
+      <div class="activity">
+        <div class="name">沼平公園 → 天空步道 → 姊妹潭</div>
+        <div class="desc">空中棧道穿梭樹冠層 · 湖邊散步拍照 · 推車可走大部分路段</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-kid">👶 推車OK</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">11:30</div>
+      <div class="activity">
+        <div class="name">搭神木線小火車 → 巨木群棧道</div>
+        <div class="desc">千年紅檜巨木，U 可以感受大自然震撼。棧道平緩好走</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-kid">🚂 小火車</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">12:30</div>
+      <div class="activity">
+        <div class="name">園區午餐 + 自由逛</div>
+        <div class="desc">園區小吃店 / 7-11。櫻花鐵道拍照，依小孩體力調整</div>
+        <span class="tag tag-food">🍜 美食</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">14:30</div>
+      <div class="activity">
+        <div class="name">下山</div>
+        <div class="desc">趁天亮下山較安全，山路彎多</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">16:00</div>
+      <div class="activity">
+        <div class="name">順路停：圓潭自然生態園區（20 分鐘）</div>
+        <div class="desc">賞瀑步道全程平坦無階梯，推車可走。向山瀑布很壯觀</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-free">免費</span>
+        <span class="tag tag-kid">👶 推車OK</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">17:30</div>
+      <div class="activity">
+        <div class="name">回嘉義市區晚餐</div>
+        <div class="desc">噴水雞肉飯 / 東市場小吃</div>
+        <span class="tag tag-food">🍜 美食</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="day-header" id="day3">🏯 Day 3 — 太平雲梯 + 檜意森活村 → 回程</div>
+  <div class="day-body">
+    <div class="timeline-item">
+      <div class="time">08:00</div>
+      <div class="activity">
+        <div class="name">早餐 + Check-out</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">08:30</div>
+      <div class="activity">
+        <div class="name">太平雲梯（停留 1hr）</div>
+        <div class="desc">全台最長景觀吊橋 281 公尺 · 海拔 1,000 公尺俯瞰嘉南平原 · 橋面平坦推車可走。大人 $100、小孩免費</div>
+        <span class="tag tag-nature">🌲 自然</span>
+        <span class="tag tag-free">小孩免費</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">09:30</div>
+      <div class="activity">
+        <div class="name">太平老街</div>
+        <div class="desc">冬瓜茶 · 碗粿 · 在地小吃，悠閒散步</div>
+        <span class="tag tag-food">🍜 美食</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">10:30</div>
+      <div class="activity">
+        <div class="name">檜意森活村（停留 1.5hr）</div>
+        <div class="desc">日式木造建築群散步 · 穿浴衣拍照（$200）· 餵魚池 · U 可以在木棧道探索</div>
+        <span class="tag tag-culture">🏯 文化</span>
+        <span class="tag tag-free">免費入園</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">12:00</div>
+      <div class="activity">
+        <div class="name">午餐：民雄鵝肉一條街</div>
+        <div class="desc">嘉義必吃！回程順路國道交流道旁</div>
+        <span class="tag tag-food">🍜 美食</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">13:00</div>
+      <div class="activity">
+        <div class="name">回程北上 🚗</div>
+        <div class="desc">國道約 3hr，預計 16:00 到家</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nature Section -->
+<section id="nature">
+  <h2><span class="icon">🌲</span>嘉義大自然景點總覽</h2>
+
+  <h3>🟢 輕鬆級（推車OK、幼兒友善）</h3>
+  <div class="nature-grid">
+    <div class="nature-card">
+      <div class="emoji">🏛️</div>
+      <h4>故宮南院</h4>
+      <div class="meta">📍 太保 · 🚗 20 分鐘 · 💰 大人 $150（12歲以下免費）</div>
+      <p style="font-size:.85rem;margin-top:8px;">超大草皮放電、水舞噴泉、湖景步道、兒童創意中心</p>
+      <span class="badge badge-easy">✅ 推車友善</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🌉</div>
+      <h4>竹崎親水公園</h4>
+      <div class="meta">📍 竹崎 · 🚗 25 分鐘 · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">天空走廊懸空棧道、森林步道、吊橋、夏季兒童戲水池</p>
+      <span class="badge badge-easy">✅ 推車友善</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">💧</div>
+      <h4>圓潭自然生態園區</h4>
+      <div class="meta">📍 竹崎/梅山 · 🚗 50 分鐘 · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">向山瀑布，賞瀑步道來回 20 分鐘，全程平坦無階梯</p>
+      <span class="badge badge-easy">✅ 推車可走</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🌊</div>
+      <h4>觀音瀑布</h4>
+      <div class="meta">📍 竹崎 · 🚗 40 分鐘 · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">壯觀瀑布，步道平緩約 15 分鐘可達</p>
+      <span class="badge badge-easy">✅ 輕鬆</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🏯</div>
+      <h4>檜意森活村</h4>
+      <div class="meta">📍 嘉義市區 · 🚗 市區 · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">日式木造建築群、檜木香、穿浴衣拍照、餵魚池</p>
+      <span class="badge badge-easy">✅ 推車友善</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🎨</div>
+      <h4>森林之歌</h4>
+      <div class="meta">📍 嘉義市區 · 🚗 市區 · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">巨型木構地景藝術，拍照打卡 10 分鐘</p>
+      <span class="badge badge-easy">✅ 順路</span>
+    </div>
+  </div>
+
+  <h3>🟡 中等級（U 走得動、綠綠建議背巾）</h3>
+  <div class="nature-grid">
+    <div class="nature-card">
+      <div class="emoji">⛰️</div>
+      <h4>阿里山森林遊樂區</h4>
+      <div class="meta">📍 阿里山 · 🚗 2.5hr · 💰 大人 $200（小孩免費）</div>
+      <p style="font-size:.85rem;margin-top:8px;">千年神木、小火車、天空步道、姊妹潭。搭火車省腳力</p>
+      <span class="badge badge-mid">⚠️ 山上低溫 12~18°C</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🌁</div>
+      <h4>太平雲梯</h4>
+      <div class="meta">📍 梅山 · 🚗 40 分鐘 · 💰 大人 $100（小孩免費）</div>
+      <p style="font-size:.85rem;margin-top:8px;">全台最長景觀吊橋 281m，海拔 1,000m 俯瞰嘉南平原、雲海</p>
+      <span class="badge badge-easy">✅ 橋面平坦</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🍃</div>
+      <h4>二延平步道</h4>
+      <div class="meta">📍 番路（阿里山公路途中） · 🚗 1hr · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">茶園雲海秘境，步道 1.1km。可只走觀景台拍照不走全程</p>
+      <span class="badge badge-mid">⚠️ 來回 2hr（走全程）</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🐑</div>
+      <h4>獨角仙休閒農場</h4>
+      <div class="meta">📍 中埔 · 🚗 30 分鐘 · 💰 $100（可折抵）</div>
+      <p style="font-size:.85rem;margin-top:8px;">大草坪滑草、餵小動物、沙坑。綠綠最適合的年紀</p>
+      <span class="badge badge-easy">✅ 幼兒友善</span>
+    </div>
+  </div>
+
+  <h3>🔴 進階級（路程遠或較費體力）</h3>
+  <div class="nature-grid">
+    <div class="nature-card">
+      <div class="emoji">🐉</div>
+      <h4>龍宮瀑布（竹坑溪步道）</h4>
+      <div class="meta">📍 梅山 · 🚗 1.5hr · 💰 免費</div>
+      <p style="font-size:.85rem;margin-top:8px;">「嘉義小太魯閣」，瀑布藏在洞穴中超壯觀。步道 3.3km 有階梯</p>
+      <span class="badge badge-hard">❌ 不適合推車</span>
+    </div>
+    <div class="nature-card">
+      <div class="emoji">🌲</div>
+      <h4>水山巨木步道</h4>
+      <div class="meta">📍 阿里山園區內 · 💰 含門票</div>
+      <p style="font-size:.85rem;margin-top:8px;">人少秘境，2,700 年紅檜巨木，沿舊鐵軌平緩好走</p>
+      <span class="badge badge-mid">⚠️ 需在阿里山內</span>
+    </div>
+  </div>
+</section>
+
+<!-- Budget Section -->
+<section id="budget">
+  <h2><span class="icon">🧮</span>預算試算</h2>
+  <div class="card">
+    <table>
+      <tr><th>項目</th><th class="text-right">金額</th></tr>
+      <tr><td>住宿（平價四人房 ~$1,700 × 2 晚）</td><td class="text-right">$3,400</td></tr>
+      <tr><td class="text-green">嘉義補助（爸爸 -$1,000 + 媽媽 -$1,000）</td><td class="text-right text-green">-$2,000</td></tr>
+      <tr><td class="text-green">中央補助（如已上路：-$800 + -$1,200）</td><td class="text-right text-green">-$2,000</td></tr>
+      <tr class="highlight-row"><td class="text-bold">住宿實付</td><td class="text-right text-bold text-orange">$1,400 ~ $3,400</td></tr>
+      <tr><td colspan="2" style="height:8px;border:none;"></td></tr>
+      <tr><td>阿里山門票（大人×2 $400 + 小火車 ~$400）</td><td class="text-right">$800</td></tr>
+      <tr><td>故宮南院（大人×2）</td><td class="text-right">$300</td></tr>
+      <tr><td>太平雲梯（大人×2）</td><td class="text-right">$200</td></tr>
+      <tr><td>其他景點（多數免費）</td><td class="text-right">~$100</td></tr>
+      <tr><td>交通（油錢來回嘉義 + 上阿里山）</td><td class="text-right">~$1,500</td></tr>
+      <tr><td>餐飲（6~7 餐外食，嘉義物價親民）</td><td class="text-right">~$3,000</td></tr>
+      <tr class="highlight-row"><td class="text-bold">3天2夜總計</td><td class="text-right text-bold text-orange">~$7,300 ~ $9,300</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:.85rem;color:var(--gray);">
+      ※ 最低 $7,300 = 嘉義+中央補助都拿到 · 最高 $9,300 = 只拿嘉義補助<br>
+      ※ U 和綠綠大多數景點免費，嘉義餐飲 CP 值超高
+    </p>
+  </div>
+</section>
+
+<!-- Checklist Section -->
+<section id="checklist">
+  <h2><span class="icon">✅</span>出發前待辦</h2>
+  <div class="card">
+    <ul class="checklist">
+      <li><div class="check done" onclick="this.classList.toggle('done')"></div><div><strong>爸爸登記嘉義補助</strong><br><span style="font-size:.82rem;color:var(--gray);">chiayistay.com.tw · 已於 4/2 完成 ✅</span></div></li>
+      <li><div class="check" onclick="this.classList.toggle('done')"></div><div><strong>媽媽登記嘉義補助</strong><br><span style="font-size:.82rem;color:var(--gray);">chiayistay.com.tw · 需要媽媽的身分證資料</span></div></li>
+      <li><div class="check" onclick="this.classList.toggle('done')"></div><div><strong>打電話訂房</strong><br><span style="font-size:.82rem;color:var(--gray);">直接打飯店電話，說參加「玩嘉攻略大方送」。選 4/14 後的平日</span></div></li>
+      <li><div class="check" onclick="this.classList.toggle('done')"></div><div><strong>阿里山小火車訂票</strong><br><span style="font-size:.82rem;color:var(--gray);"><a href="https://afrts.forest.gov.tw/" target="_blank">afrts.forest.gov.tw</a> · 沼平線 + 神木線</span></div></li>
+      <li><div class="check" onclick="this.classList.toggle('done')"></div><div><strong>確認中央補助是否上路</strong><br><span style="font-size:.82rem;color:var(--gray);">關注觀光署公告，上路後通知飯店同時申請</span></div></li>
+      <li><div class="check" onclick="this.classList.toggle('done')"></div><div><strong>準備物品</strong><br><span style="font-size:.82rem;color:var(--gray);">保暖外套（阿里山 12~18°C）· 推車+背巾 · 換洗衣物 · 水壺零食</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Alishan Tips -->
+<section>
+  <h2><span class="icon">⛰️</span>阿里山帶小孩注意事項</h2>
+  <div class="card card-warn">
+    <ul style="list-style:none;font-size:.92rem;">
+      <li style="padding:6px 0;">🌡️ 山上溫度比平地低 <strong>10~15°C</strong>（4月山上約 12~18°C），一定帶外套</li>
+      <li style="padding:6px 0;">👶 綠綠帶推車 OK，但部分步道有階梯，<strong>備背巾更方便</strong></li>
+      <li style="padding:6px 0;">🚂 小火車班次有限，建議<strong>提前上網訂票</strong></li>
+      <li style="padding:6px 0;">🍱 山上餐飲選擇少，<strong>自備水和零食</strong></li>
+      <li style="padding:6px 0;">🚗 台18線山路彎多，容易暈車的小孩<strong>備暈車藥</strong></li>
+      <li style="padding:6px 0;">⏰ 建議 <strong>14:30 前下山</strong>，趁天亮開山路較安全</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>🌿 嘉義親子旅遊攻略 · 2026.04 · 巫家出遊企劃</p>
+  <p style="margin-top:8px;opacity:.7;">Built with ❤️ by Claude Code</p>
+</footer>
+
+<script>
+// Sticky nav active state
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 80;
+    if (scrollY >= top) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}
+window.addEventListener('scroll', updateNav);
+
+// Smooth scroll
+navLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
